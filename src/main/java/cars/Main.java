@@ -13,15 +13,14 @@ public class Main {
     private static final String[] COLORS = {"Red", "Blue", "Black", "White", "Silver", "Gray"};
     private static final String[] MODELS = {"Sedan", "SUV", "Truck", "Hatchback", "Coupe", "Van"};
 
-    // List to hold all vehicle instances
     private static List<Vehicle> vehicles;
 
-    /** Main method to run the vehicle simulation and measure memory. */
+    /** Main method to simulate vehicle creation and measure memory. */
     public static void main(String[] args) {
         vehicles = new ArrayList<>(NUMBER_OF_VEHICLES);
         Random random = new Random();
 
-        // Start time measurement
+
         long startTime = System.currentTimeMillis();
 
         for (int i = 0; i < NUMBER_OF_VEHICLES; i++) {
@@ -43,16 +42,16 @@ public class Main {
         System.out.println("Number of unique VehicleType objects (flyweights): " + VehicleFactory.getNumberOfUniqueVehicleTypes());
 
 
-        // Simulate displaying a few vehicles (optional, for demonstration)
+
         System.out.println("\n--- Displaying a few vehicles ---");
         for (int i = 0; i < Math.min(5, NUMBER_OF_VEHICLES); i++) {
             vehicles.get(i).display();
         }
 
 
-        // Measure memory usage
+
         Runtime runtime = Runtime.getRuntime();
-        runtime.gc(); // Request garbage collection
+        runtime.gc();
 
         long totalMemoryMB = runtime.totalMemory() / (1024L * 1024L);
         long freeMemoryMB = runtime.freeMemory() / (1024L * 1024L);
@@ -67,12 +66,7 @@ public class Main {
 
     }
 
-    /**
-     * Generates a random license plate as a long.
-     * The format is assumed to be 3 uppercase letters followed by 4 digits.
-     * The long value is constructed such that the first 3 components represent letters
-     * and the last 4 components represent digits.
-     */
+    /** Generates a random license plate. */
     private static int generateRandomLicensePlate(Random random) {
         int letters = random.nextInt(26 * 26 * 26);
         int digits = random.nextInt(10000);

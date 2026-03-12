@@ -24,13 +24,13 @@ public class VehicleType {
         return model;
     }
 
-    /** Displays vehicle type info with extrinsic state */
+    /** Displays vehicle type information. */
     public void displayVehicle(float x, float y, String licensePlate, float currentSpeed) {
         System.out.println("Displaying Vehicle: " + brand + " " + model + " (" + color + ")");
         System.out.println("  License Plate: " + licensePlate + ", Position: (" + x + ", " + y + "), Speed: " + currentSpeed + " km/h");
     }
 
-    /** Compares VehicleType objects */
+    /** Compares vehicle types. */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -41,7 +41,7 @@ public class VehicleType {
                model.equals(that.model);
     }
 
-    /** Generates hash code */
+    /** Generates hash code. */
     @Override
     public int hashCode() {
         return java.util.Objects.hash(brand, color, model);

@@ -3,15 +3,15 @@ package cars.extrinsic;
 import cars.intrinsic.VehicleType;
 
 public class Vehicle {
-    private float x; // position (x)
-    private float y; // position (y)
-    private int licensePlate; // Matricula (represented as a long for memory efficiency)
-    private float currentSpeed; // Velocidad actual
+    private float x;
+    private float y;
+    private int licensePlate;
+    private float currentSpeed;
 
 
-    private VehicleType type; // Reference to the intrinsic VehicleType
+    private VehicleType type;
 
-    /** Constructor for Vehicle */
+    /** Constructor. */
     public Vehicle(float x, float y, int licensePlate, float currentSpeed, VehicleType type) {
         this.x = x;
         this.y = y;
@@ -28,12 +28,12 @@ public class Vehicle {
         return y;
     }
 
-    /** Returns the license plate as a long. */
+    /** Returns license plate. */
     public int getLicensePlateAsLong() {
         return licensePlate;
     }
 
-    /** Returns the license plate as a String, generated only when needed. */
+    /** Returns license plate as string. */
     public String getLicensePlateAsString() {
         return longToLicensePlate(licensePlate);
     }
@@ -42,20 +42,17 @@ public class Vehicle {
         return currentSpeed;
     }
 
-    /** Returns vehicle type (intrinsic part) */
+    /** Returns vehicle type. */
     public VehicleType getType() {
         return type;
     }
 
-    /** Displays vehicles full information */
+    /** Displays vehicle information. */
     public void display() {
         type.displayVehicle(x, y, getLicensePlateAsString(), currentSpeed);
     }
 
-    /**
-     * Converts a long representation of a license plate back to its String format (e.g., "AAA-1234").
-     * This method assumes the license plate is composed of 3 uppercase letters and 4 digits.
-     */
+    /** Converts long to license plate string. */
     private static String longToLicensePlate(long numericLicensePlate) {
         char[] plate = new char[8];
 
